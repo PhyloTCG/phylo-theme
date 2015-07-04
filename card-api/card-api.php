@@ -800,7 +800,7 @@ class Phylo_Cards {
 		$color = strtoupper( substr( $color, 1 ) );
 
 		if ( empty( $habitat ) && empty( $color ) )
-			return theme_url().'/phylo/img/blank.gif';
+			return get_template_directory_uri().'/img/blank.gif';
 		// check if the file exist already
 
 		$file_url = '/img/generated-card-images/br-'.$color.'-'.implode( "-",$habitat)."-".$version.".png";
