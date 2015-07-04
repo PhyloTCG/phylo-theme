@@ -1,0 +1,292 @@
+
+.cards-list-view .card-container{
+	margin-right: 10px;
+}
+.card-photo-shell,
+.card-container {
+    float: left;
+    list-style: none outside none;
+    margin: 0 0 10px 0;
+    overflow: hidden;
+    position: relative;
+    width: 270px;
+}
+
+.card-photo-shell{
+	clear: both;
+}
+.card-photo-shell .card-image {
+	width: 100%;
+	margin: 0;
+}
+.card-photo-shell span{
+	display: block;
+}
+.card-photo-shell .photo{
+	font-size: 12px;
+}
+/* Flip card css  */
+.card-flip {
+    -o-transition: all .5s;
+    -ms-transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 10px solid hsl(0, 0%, 13%);
+    border-radius: 3px 3px 3px 3px;
+    height: 380px;
+    list-style: none outside none;
+    padding: 5px;
+    width: 240px;
+    float: left;
+    margin-top: 10px;
+}
+.phylocard {
+    z-index: 2;
+}
+.card-flip-back {
+    z-index: 1;
+    -webkit-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    border: 10px solid hsl(0, 0%, 13%);
+    border-radius: 3px 3px 3px 3px;
+    font-size: 12px;
+}
+
+.card-container.flipped .phylocard {
+    z-index: 1;
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.card-container.flipped .card-flip-back {
+    z-index: 2;
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+/* Card */
+.phylocard{
+	background: #FFF;
+	position: relative;
+	overflow: hidden;
+	border: 10px solid hsl(0, 0%, 13%);
+    border-radius: 3px 3px 3px 3px;
+    height: 380px;
+    list-style: none outside none;
+    padding: 5px;
+    width: 240px;
+    float: left;
+    margin-top: 10px;
+}
+.card-background {
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.card-name{
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+    height: 16px;
+    line-height: 1;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    z-index: 10;
+}
+.card-name a {
+	color: #000 !important;
+}
+
+.smaller-13 a {
+    font-size: 13px;
+}
+.smaller-12 a {
+    font-size: 12px;
+}
+.smaller-11 a {
+    font-size: 11px;
+}
+.smaller-10 a{
+    font-size: 10px;
+}
+.latin-name {
+    font-family: Arial,Helvetica,sans-serif;
+    font-style: italic;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+.num-values {
+    position: absolute;
+    right: 7px;
+    top: 5px;
+    z-index: 10;
+}
+.card-image {
+    height: 155px;
+    margin: 4px 0 4px -5px;
+    overflow: hidden;
+    position: relative;
+    width: 250px;
+    z-index: 10;
+}
+.card-image img {
+    width: 100%;
+}
+
+.creative-commons {
+    left: 3px;
+    position: absolute;
+    top: 202px;
+    z-index: 10;
+}
+.creative-commons i:before{
+	margin:0!important;
+	width:1.01em!important;
+	color:#999;
+	background: #FFF;
+	border-radius: 50%;
+	-webkit-border-radius: 51%;
+	-moz-border-radius: 50%;
+
+}
+.cc-icon-img {
+    margin-left:1px;
+}
+.card-classification {
+    float: right;
+    font-family: courier,sans-serif;
+    font-size: 9px;
+    position: relative;
+    text-align: right;
+    width: 195px;
+    z-index: 12;
+    line-height: 9px;
+    padding: 5px 0;
+
+}
+.card-text {
+    color: hsl(340, 13%, 18%);
+    font-family: helvetica,times,sans-serif;
+    font-size: 10.5px;
+    height: 130px;
+    left: 10px;
+    overflow: hidden;
+    position: absolute;
+    top: 230px;
+    width: 230px;
+    z-index: 10;
+}
+.card-text p {
+    margin-bottom: 2px;
+}
+.card-image .empty {
+    background: none repeat scroll 0 0 #EEEEEE;
+    display: block;
+    height: 140px;
+    padding: 50px 20px;
+    text-align: center;
+}
+.card-credit {
+    bottom: 0;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    height: 28px;
+    left: 4px;
+    line-height: 13px;
+    position: absolute;
+    z-index: 10;
+}
+.card-credit span {
+    display: block;
+}
+
+.card-temperature {
+    bottom: 5px;
+    font-size: 11px;
+    font-weight: bold;
+    position: absolute;
+    right: 5px;
+    text-align: right;
+    width: 70px;
+    z-index: 10;
+    text-transform: capitalize;
+}
+
+/* Card Action */
+.card-action {
+    background: none repeat scroll 0 0 hsl(0, 0%, 93%);
+    float: left;
+    list-style: none outside none;
+    margin: 0;
+    padding: 2px 10px 2px 0;
+    width: 260px;
+}
+.card-action li {
+    float: left;
+    font-size: 11px;
+}
+.card-action li a {
+    padding-left: 12px;
+}
+
+.card .entry-content{
+	margin-left: 290px;
+}
+.delete-card {
+    color: #E4575D;
+}
+.card-primary{
+    margin-top: -18px;
+}
+/* =Card Create Form
+----------------------------------------------- */
+.form-row{
+	margin-bottom: 20px;
+}
+
+.form-row label{
+	margin-top: 10px;
+	display: block;
+	font-size: 12px;
+}
+.form-row input[type="text"],
+.form-row textarea,
+.form-row select
+{
+	width: 95.5%;
+	padding: 2px 2%;
+}
+.form-row select{
+	font-size: 11px;
+}
+.form-row textarea{
+	height: 150px;
+}
+#common_name{
+	font-size: 24px;
+}
+
+#card_image{
+	margin: 10px 0;
+}
+.iris-picker{
+    position: absolute;
+}

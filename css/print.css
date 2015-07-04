@@ -1,0 +1,278 @@
+/* card template */
+a
+
+@page {
+	size:8.5in 11in;
+	margin:1in 16px 1in 16px;
+}
+* {
+	overflow: visible !important;
+}
+/* Things to hide */
+.card-flip-content,
+.photo-card .graphic,
+.graphic-card .photo,
+#wpadminbar,
+.site-footer,
+.navigation-main,
+.menu-top-menu-container,
+.cards-list-view .widget-area-wrap,
+.site-branding,
+.card-action,
+.wp-pagenavi, #infinite-handle {
+	display: none;
+}
+
+html, body{
+	margin:0;
+	padding: 0;
+}
+
+.cards-list-view .page-title{
+	display: none;
+}
+#page,
+.site-content,
+.content-area
+{
+	width: 100%!important;
+	margin: 0!important;
+	padding: 0!important;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Card page template */
+.show-print{
+	display: none;
+}
+.cards a{
+	color:#000;
+}
+
+.cards-list-view .card-container{
+	margin-right: 0;
+}
+.card-photo-shell,
+.card-container {
+    float: left;
+    list-style: none outside none;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+.card-container{
+    border:1px solid white;
+    border-left:0;
+    border-top:0;
+    page-break-inside: avoid;
+}
+
+.card-container:nth-child(6n) {
+    page-break-after: always;
+}
+
+.card-photo-shell{
+	clear: both;
+}
+.card-photo-shell .card-image {
+	width: 100%;
+	margin: 0;
+    max-height: 155px;
+}
+.card-photo-shell span{
+	display: block;
+}
+.card-photo-shell .photo{
+	font-size: 12px;
+}
+.phylocard {
+    z-index: 2;
+}
+.card-flip-back {
+    display: none;
+}
+/* Card */
+.phylocard{
+	background: #FFF;
+	position: relative;
+	overflow: hidden;
+	border: 5px solid hsl(0, 0%, 13%);
+    border-radius: 3px 3px 3px 3px;
+    list-style: none outside none;
+    padding: 5px;
+    float: left;
+}
+
+
+.card-photo-shell,
+.card-container{
+    width: 230px; /* 260 */
+    height: 314px;
+}
+.phylocard {
+    height: 294px; /*380px*/
+    width: 210px; /*240px*/
+    overflow: hidden;
+}
+.card-image{
+    height: 135px; /*155px*/
+    width: 218px; /*250*/
+    max-height: 135px;
+    overflow: hidden !important;
+    position: relative;
+    z-index: 1;
+}
+.card-image img{
+    z-index: -1;
+    position: absolute;
+    overflow: hidden;
+}
+.card-background{
+   width: 220px; /*250*/
+   height: 304px;
+}
+
+.card-background {
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+.card-name{
+    color: #000;
+    font-size: 12px;
+    font-weight: bold;
+    height: 12px;
+    line-height: 1;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    z-index: 10;
+}
+.card-name a {
+	color: #000 !important;
+}
+
+.smaller-13 a {
+    font-size: 12px;
+}
+.smaller-12 a {
+    font-size: 11px;
+}
+.smaller-11 a {
+    font-size: 10px;
+}
+.smaller-10 a{
+    font-size: 10px;
+}
+.latin-name {
+    font-family: Arial,Helvetica,sans-serif;
+    font-style: italic;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+    font-size: 11px;
+}
+.num-values {
+    position: absolute;
+    right: 7px;
+    top: 5px;
+    z-index: 10;
+}
+.card-image {
+    margin: 4px 0 4px -5px;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+.card-image img {
+    width: 100%;
+}
+
+.creative-commons {
+    left: 3px;
+    position: absolute;
+    top: 180px;
+    z-index: 10;
+}
+.creative-commons i:before{
+	margin:0!important;
+	width:1.01em!important;
+	color:#999;
+	background: #FFF;
+	border-radius: 50%;
+	-webkit-border-radius: 51%;
+	-moz-border-radius: 50%;
+
+}
+.cc-icon-img {
+    margin-left:1px;
+}
+.card-classification {
+    float: right;
+    font-family: courier,sans-serif;
+    font-size: 9px;
+    position: relative;
+    text-align: right;
+    width: 195px; /* 195 */
+    z-index: 12;
+    line-height: 9px;
+    padding: 0;
+
+}
+.card-text {
+    color: hsl(340, 13%, 18%);
+    font-family: helvetica,times,sans-serif;
+    font-size: 9px;
+    height: 130px; /* 130 */
+    line-height: 11px;
+    left: 5px;
+    overflow: hidden;
+    position: absolute;
+    top: 200px;
+    width: 210px; /*230*/
+    z-index: 10;
+}
+.card-text p {
+    margin-bottom: 2px;
+    line-height: 11px!important;
+    font-size: 9px!important;
+}
+.card-image .empty {
+    display: none;
+}
+.card-credit {
+    bottom: 0;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    height: 28px; /* 28 */
+    left: 4px;
+    line-height: 13px;
+    position: absolute;
+    z-index: 10;
+}
+.card-credit span {
+    display: block;
+}
+
+.card-temperature {
+    bottom: 5px;
+    font-size: 9px;
+    font-weight: bold;
+    position: absolute;
+    right: 5px;
+    text-align: right;
+    width: 70px;/*70*/
+    z-index: 10;
+    text-transform: capitalize;
+}
+
+/* Card Action */
+.card-action {
+   display: none;
+}
+
+

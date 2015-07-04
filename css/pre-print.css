@@ -1,0 +1,134 @@
+/* card template */
+@page {
+	size:8.5in 11in;
+	margin:1in 0 10px 16px;
+}
+* {
+	overflow: visible !important;
+}
+/* Things to hide */
+.card-flip-content,
+.photo-card .graphic,
+.graphic-card .photo,
+#wpadminbar,
+.site-footer,
+.navigation-main,
+.menu-top-menu-container,
+.cards-list-view .widget-area-wrap,
+.site-branding,
+.card-action,
+.wp-pagenavi, #infinite-handle {
+	display: none;
+}
+
+html, body{
+	margin:0;
+	padding: 0;
+}
+
+.cards-list-view .page-title{
+	display: none;
+}
+#page,
+.site-content,
+.content-area
+{
+	width: 100%!important;
+	margin: 0!important;
+	padding: 0!important;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Card page template */
+.show-print{
+	display: block!important;
+}
+.cards a{
+	color:#000;
+}
+
+body #content .card-container {
+    page-break-inside: avoid;
+   	width: 2.52in;
+   	overflow: hidden;
+    border-right:12px solid #FFF;
+    margin-bottom: 0;
+}
+body #content .card-background,
+body #content .card-image{
+	width: 2.5in;
+	height: 3.7in;
+}
+body #content .phylocard{
+	width:  2.4in;
+	height: 3.6in;
+}
+body #content .card-text{
+	width: 2.3in;
+	font-size: 9px;
+	line-height: 13px;
+}
+body #content .card-name {
+	font-size: 12px;
+}
+body #content .latin-name{
+	font-size: 11px;
+}
+body #content .card-credit,
+body #content .card-temperature{
+	font-size: 10px;
+}
+
+body #content .card-classification{
+	right: 10px;
+	position: absolute;
+	top: 202px;
+	z-index: 10;
+	width: 2in;
+}
+/* Fixes for Chrome */
+.chrome body #content .card-container{
+	width: 280px!important;
+	zoom: 85%;
+	-webkit-transform: scale( 85% );
+	margin: 0!important;
+}
+.chrome body #content .card-background{
+	width: 280px!important;
+	height: auto;
+	margin: 0!important;
+}
+.chrome body #content .card-image{
+	width: 250px!important;
+}
+.chrome body #content .card-name{
+	font-size: 12px;
+}
+
+/* Fixes for Safari */
+.safari body #content .card-container {
+	width: 2.27in!important;
+}
+.safari body #content .phylocard {
+	width: 2.17in!important;
+}
+.safari body #content .card-background {
+	width: 2.276in;
+	margin: 0!important;
+	padding: 0 !important;
+}
+.safari body #content .card-image {
+	width: 2.276in;
+}
+.safari body #content .card-text {
+	width: 2.1in;
+}
+.safari body #content .card-classification {
+	top:190px;
+}
+
+.safari body #content .creative-commons {
+	top:190px;
+}
+
