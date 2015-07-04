@@ -10,7 +10,7 @@
  */
 if ( ! isset( $content_width ) ) {
     $content_width = 640;
-} /* pixels */
+}
 
 define('ACF_LITE', true);
 require_once 'advanced-custom-fields/acf.php';
@@ -23,6 +23,7 @@ if ( ! function_exists('phylo_setup') ) :
 function phylo_setup() {
 
         include  get_template_directory() . '/inc/api.php' ;
+
         /**
          * Custom template tags for this theme.
          */
@@ -37,7 +38,6 @@ function phylo_setup() {
          * Customizer additions
          */
         include  get_template_directory() . '/inc/customizer.php' ;
-
 
         /**
          * Shortcodes
