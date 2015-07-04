@@ -15,16 +15,14 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
-				<h1 class="page-title">
-					Selected Cards
-				</h1>
+				<h1 class="page-title">Selected Cards</h1>
 				<?php phylo_content_nav( 'nav-below' ); ?>
 				<?php
-					if ( is_category() ) :
-						// show an optional category description
-						$category_description = category_description();
-						if ( ! empty( $category_description ) ) :
-							echo apply_filters( 'category_archive_meta', '<div class="taxonomy-description">' . $category_description . '</div>' );
+				if ( is_category() ) :
+					// show an optional category description
+					$category_description = category_description();
+					if ( ! empty( $category_description ) ) :
+						echo apply_filters( 'category_archive_meta', '<div class="taxonomy-description">' . $category_description . '</div>' );
 						endif;
 
 					elseif ( is_tag() ) :

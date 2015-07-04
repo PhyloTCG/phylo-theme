@@ -17,8 +17,8 @@ get_header(); ?>
 			<header class="page-header">
 				<h1 class="page-title">
 					<?php
-						if ( is_category() ) :
-							printf( __( 'Category Archives: %s', 'phylo' ), '<span>' . single_cat_title( '', false ) . '</span>' );
+					if ( is_category() ) :
+						printf( __( 'Category Archives: %s', 'phylo' ), '<span>' . single_cat_title( '', false ) . '</span>' );
 
 						elseif ( is_tag() ) :
 							printf( __( 'Tag Archives: %s', 'phylo' ), '<span>' . single_tag_title( '', false ) . '</span>' );
@@ -48,7 +48,7 @@ get_header(); ?>
 							_e( 'Asides', 'phylo' );
 
 						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-							_e( 'Images', 'phylo');
+							_e( 'Images', 'phylo' );
 
 						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
 							_e( 'Videos', 'phylo' );
@@ -66,11 +66,11 @@ get_header(); ?>
 					?>
 				</h1>
 				<?php
-					if ( is_category() ) :
-						// show an optional category description
-						$category_description = category_description();
-						if ( ! empty( $category_description ) ) :
-							echo apply_filters( 'category_archive_meta', '<div class="taxonomy-description">' . $category_description . '</div>' );
+				if ( is_category() ) :
+					// show an optional category description
+					$category_description = category_description();
+					if ( ! empty( $category_description ) ) :
+						echo apply_filters( 'category_archive_meta', '<div class="taxonomy-description">' . $category_description . '</div>' );
 						endif;
 
 					elseif ( is_tag() ) :

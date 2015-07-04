@@ -20,11 +20,11 @@ get_header(); ?>
 				</h1>
 				<?php phylo_content_nav( 'nav-below' ); ?>
 				<?php
-					if ( is_category() ) :
-						// show an optional category description
-						$category_description = category_description();
-						if ( ! empty( $category_description ) ) :
-							echo apply_filters( 'category_archive_meta', '<div class="taxonomy-description">' . $category_description . '</div>' );
+				if ( is_category() ) :
+					// show an optional category description
+					$category_description = category_description();
+					if ( ! empty( $category_description ) ) :
+						echo apply_filters( 'category_archive_meta', '<div class="taxonomy-description">' . $category_description . '</div>' );
 						endif;
 
 					elseif ( is_tag() ) :
