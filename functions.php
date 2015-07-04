@@ -8,8 +8,8 @@
 /**
  * Set the content width based on the theme's design and stylesheet.
  */
-if ( ! isset( $content_width ) )
-	$content_width = 640; /* pixels */
+if ( ! isset( $content_width ) ) {
+	$content_width = 640; } /* pixels */
 
 define( 'ACF_LITE', true );
 include_once('advanced-custom-fields/acf.php');
@@ -22,80 +22,78 @@ require_once( get_template_directory(). '/card-api/card-api.php');
 require_once( get_template_directory(). '/inc/convert-post-to-card.php');
 
 if ( ! function_exists( 'phylo_setup' ) ) :
-/**
+	/**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * Note that this function is hooked into the after_setup_theme hook, which runs
  * before the init hook. The init hook is too late for some features, such as indicating
  * support post thumbnails.
  */
-function phylo_setup() {
+	function phylo_setup() {
 
-	require( get_template_directory() . '/inc/api.php' );
-	/**
+		require( get_template_directory() . '/inc/api.php' );
+		/**
 	 * Custom template tags for this theme.
 	 */
-	require( get_template_directory() . '/inc/template-tags.php' );
+		require( get_template_directory() . '/inc/template-tags.php' );
 
-	/**
+		/**
 	 * Custom functions that act independently of the theme templates
 	 */
-	require( get_template_directory() . '/inc/extras.php' );
+		require( get_template_directory() . '/inc/extras.php' );
 
-	/**
+		/**
 	 * Customizer additions
 	 */
-	require( get_template_directory() . '/inc/customizer.php' );
+		require( get_template_directory() . '/inc/customizer.php' );
 
-
-	/**
+		/**
 	 * Shortcodes
 	 */
-	 require( get_template_directory() . '/inc/shortcodes.php' );
+		 require( get_template_directory() . '/inc/shortcodes.php' );
 
-
-	/**
+		/**
 	 * Make theme available for translation
 	 * Translations can be filed in the /languages/ directory
 	 * If you're building a theme based on phylo, use a find and replace
 	 * to change 'phylo' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'phylo', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'phylo', get_template_directory() . '/languages' );
 
-	/**
+		/**
 	 * Add default posts and comments RSS feed links to head
 	 */
-	add_theme_support( 'automatic-feed-links' );
+		add_theme_support( 'automatic-feed-links' );
 
-	/**
+		/**
 	 * Enable support for Post Thumbnails
 	 */
-	add_theme_support( 'post-thumbnails' );
+		add_theme_support( 'post-thumbnails' );
 
-	/**
+		/**
 	 * This theme uses wp_nav_menu() in one location.
 	 */
-	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'phylo' ),
-		'loggedin'=>__('Loggedin Menu', 'phylo'),
-	) );
+		register_nav_menus( array(
+			'primary' => __( 'Primary Menu', 'phylo' ),
+			'loggedin' => __( 'Loggedin Menu', 'phylo' ),
+		) );
 
-	/**
+		/**
 	 * Enable support for Post Formats
 	 */
-	// add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
-	add_filter( 'body_class' , 'phylo_body_class' );
+		// add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+		add_filter( 'body_class' , 'phylo_body_class' );
 
-	add_theme_support( 'infinite-scroll', array(
-	    'type'           => 'click',
-	    'footer_widgets' => false,
-	    'container'      => 'post-shell',
-	    'wrapper'        => false,
-	    'render'         => 'phylo_infinite_scroll_render',
-	    'posts_per_page' => 9,
-	) );
+		add_theme_support( 'infinite-scroll', array(
+			'type'           => 'click',
+			'footer_widgets' => false,
+			'container'      => 'post-shell',
+			'wrapper'        => false,
+			'render'         => 'phylo_infinite_scroll_render',
+			'posts_per_page' => 9,
+		) );
 
-}
+	}
 
 endif; // phylo_setup
 add_action( 'after_setup_theme', 'phylo_setup' );
@@ -107,16 +105,16 @@ function phylo_deregister_styles() {
 
 function phylo_body_class( $classes ) {
 
-	if( phylo_is_cards_list_view() )
-		$classes[] = 'cards-list-view';
+	if ( phylo_is_cards_list_view() ) {
+		$classes[] = 'cards-list-view'; }
 
 	return $classes;
 }
 
-function phylo_is_cards_list_view(){
-	if( is_tax( 'deck')
-	|| 	is_tax( 'type-of')
-	|| 	is_tax( 'classification')
+function phylo_is_cards_list_view() {
+	if ( is_tax( 'deck' )
+	|| 	is_tax( 'type-of' )
+	|| 	is_tax( 'classification' )
 	||  is_post_type_archive( 'card' )
 	||  is_post_type_archive( 'diy-card' )
 	|| 	is_page_template( 'my-cards-page.php' )
@@ -149,8 +147,8 @@ function phylo_register_custom_background() {
 		add_theme_support( 'custom-background', $args );
 	} else {
 		define( 'BACKGROUND_COLOR', $args['default-color'] );
-		if ( ! empty( $args['default-image'] ) )
-			define( 'BACKGROUND_IMAGE', $args['default-image'] );
+		if ( ! empty( $args['default-image'] ) ) {
+			define( 'BACKGROUND_IMAGE', $args['default-image'] ); }
 		add_custom_background();
 	}
 }
@@ -168,7 +166,6 @@ function phylo_widgets_init() {
 		'before_title'  => '<h1 class="widget-title">',
 		'after_title'   => '</h1>',
 	) );
-
 
 	register_sidebar( array(
 		'name'          => __( 'Blog Sidebar', 'phylo' ),
@@ -192,26 +189,26 @@ function phylo_widgets_init() {
 add_action( 'widgets_init', 'phylo_widgets_init' );
 
 function phylo_custom_rewrite_rule() {
-	add_rewrite_rule('^diy-decks/([^/]*)/page/?([0-9]{1,})/?','index.php?post_type=diy-card&author_name=$matches[1]&paged=$matches[2]','top');
-	add_rewrite_rule('^diy-decks/([^/]*)/?','index.php?post_type=diy-card&author_name=$matches[1]','top');
+	add_rewrite_rule( '^diy-decks/([^/]*)/page/?([0-9]{1,})/?','index.php?post_type=diy-card&author_name=$matches[1]&paged=$matches[2]','top' );
+	add_rewrite_rule( '^diy-decks/([^/]*)/?','index.php?post_type=diy-card&author_name=$matches[1]','top' );
 
 }
-add_action('init', 'phylo_custom_rewrite_rule', 10, 0);
+add_action( 'init', 'phylo_custom_rewrite_rule', 10, 0 );
 
 
 function phylo_custom_rewrite_query( $query ) {
 
-    if ( isset( $query->query_vars[ 'author_name'] ) && $query->query_vars[ 'post_type'] == 'diy-card' && $query->is_main_query() ) {
-    	$user = get_user_by( 'slug', $query->query_vars[ 'author_name' ] );
-    	$author = $user->ID;
-    	if( function_exists( 'STR_get_all_authors' ) ) {
-    		$authors = STR_get_all_authors( $user->user_email );
-    		$author = implode(',', $authors);
-    	}
+	if ( isset( $query->query_vars[ 'author_name'] ) && $query->query_vars[ 'post_type'] == 'diy-card' && $query->is_main_query() ) {
+		$user = get_user_by( 'slug', $query->query_vars[ 'author_name' ] );
+		$author = $user->ID;
+		if ( function_exists( 'STR_get_all_authors' ) ) {
+			$authors = STR_get_all_authors( $user->user_email );
+			$author = implode( ',', $authors );
+		}
 
-    	$query->set( 'author_name', null );
-    	$query->set( 'author', $author );
-    }
+		$query->set( 'author_name', null );
+		$query->set( 'author', $author );
+	}
 }
 add_action( 'parse_query', 'phylo_custom_rewrite_query' );
 /**
@@ -220,12 +217,11 @@ add_action( 'parse_query', 'phylo_custom_rewrite_query' );
 function phylo_scripts() {
 
 	wp_enqueue_style( 'phylo-style', get_stylesheet_uri(), array(), '1.1' );
-	wp_enqueue_script( 'phylo-cards', get_template_directory_uri() . '/js/cards.js', array('jquery', 'jquery-ui-autocomplete'), '20120206', true );
+	wp_enqueue_script( 'phylo-cards', get_template_directory_uri() . '/js/cards.js', array( 'jquery', 'jquery-ui-autocomplete' ), '20120206', true );
 
-	$translation_array = array( 'ajaxurl' => admin_url('admin-ajax.php') );
+	$translation_array = array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) );
 
-    wp_localize_script( 'phylo-cards', 'Phylo', $translation_array );
-
+	wp_localize_script( 'phylo-cards', 'Phylo', $translation_array );
 
 	wp_enqueue_script( 'phylo-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
@@ -247,28 +243,27 @@ function phylo_scripts() {
 		'backbone',
 		'underscore',
 		'plupload',
-		'iris-color-picker'
+		'iris-color-picker',
 		), 1, true );
 }
 add_action( 'wp_enqueue_scripts', 'phylo_scripts' );
 
 function phylo_infinite_scroll_render() {
 
-	while( have_posts() ) {
-    	the_post();
-    	if( phylo_is_cards_list_view() || in_array( get_post_type(), array('card', 'diy-card') ) ) {
-    		get_template_part( 'content-card', 'standard' );
-    	} else {
-    		get_template_part( 'content' );
-    	}
-
+	while ( have_posts() ) {
+		the_post();
+		if ( phylo_is_cards_list_view() || in_array( get_post_type(), array( 'card', 'diy-card' ) ) ) {
+			get_template_part( 'content-card', 'standard' );
+		} else {
+			get_template_part( 'content' );
+		}
 	}
 
 }
 add_filter( 'infinite_scroll_ajax_url', 'phylo_infinate_select_paga_paramaters' );
 function phylo_infinate_select_paga_paramaters( $parameter ) {
 
-	if( isset( $_GET['selected'] ) ) {
+	if ( isset( $_GET['selected'] ) ) {
 		return add_query_arg( array( 'selected' => true ), $parameter );
 	}
 	return $parameter;

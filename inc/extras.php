@@ -33,12 +33,12 @@ add_filter( 'body_class', 'phylo_body_classes' );
  * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
  */
 function phylo_enhanced_image_navigation( $url, $id ) {
-	if ( ! is_attachment() && ! wp_attachment_is_image( $id ) )
-		return $url;
+	if ( ! is_attachment() && ! wp_attachment_is_image( $id ) ) {
+		return $url; }
 
 	$image = get_post( $id );
-	if ( ! empty( $image->post_parent ) && $image->post_parent != $id )
-		$url .= '#main';
+	if ( ! empty( $image->post_parent ) && $image->post_parent != $id ) {
+		$url .= '#main'; }
 
 	return $url;
 }
@@ -50,20 +50,20 @@ add_filter( 'attachment_link', 'phylo_enhanced_image_navigation', 10, 2 );
 function phylo_wp_title( $title, $sep ) {
 	global $page, $paged;
 
-	if ( is_feed() )
-		return $title;
+	if ( is_feed() ) {
+		return $title; }
 
 	// Add the blog name
 	$title .= get_bloginfo( 'name' );
 
 	// Add the blog description for the home/front page.
 	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) )
-		$title .= " $sep $site_description";
+	if ( $site_description && ( is_home() || is_front_page() ) ) {
+		$title .= " $sep $site_description"; }
 
 	// Add a page number if necessary:
-	if ( $paged >= 2 || $page >= 2 )
-		$title .= " $sep " . sprintf( __( 'Page %s', 'phylo' ), max( $paged, $page ) );
+	if ( $paged >= 2 || $page >= 2 ) {
+		$title .= " $sep " . sprintf( __( 'Page %s', 'phylo' ), max( $paged, $page ) ); }
 
 	return $title;
 }

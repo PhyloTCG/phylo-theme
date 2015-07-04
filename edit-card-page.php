@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Template Name: Edit Card Template
  *
  * @package phylo
@@ -11,15 +11,15 @@
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 
-		<?php if( is_user_logged_in() && isset( $_GET['id'] )): ?>
+		<?php if ( is_user_logged_in() && isset( $_GET['id'] ) ): ?>
 			<?php phylo_display_form( $_GET['id'] ); ?>
-		<?php else: ?>
+		<?php else : ?>
 			<p>Sorry you have to be logged in to Edit a Card.</p>
 		<?php endif; ?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
-<?php if( is_user_logged_in()): ?>
+<?php if ( is_user_logged_in() ) : ?>
 <div class="widget-area-wrap">
 	<h4>Card Preview</h4>
 	<div id="preview-card"></div>
@@ -49,7 +49,7 @@
 				'habitat-1'			=> '<%= habitat_1 %>',
 				'habitat-2'			=> '<%= habitat_2 %>',
 				'habitat-3'			=> '<%= habitat_3 %>',
-				), 'edit'); 
+				), 'edit');
 				?>
 </script>
 <?php get_footer(); ?>

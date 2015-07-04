@@ -8,29 +8,29 @@
  */
 
 if ( ! function_exists( 'phylo_content_nav' ) ) :
-/**
+	/**
  * Display navigation to next/previous pages when applicable
  */
-function phylo_content_nav( $nav_id ) {
-	global $wp_query, $post;
+	function phylo_content_nav( $nav_id ) {
+		global $wp_query, $post;
 
-	// Don't print empty markup on single pages if there's nowhere to navigate.
-	if ( is_single() ) {
-		$previous = ( is_attachment() ) ? get_post( $post->post_parent ) : get_adjacent_post( false, '', true );
-		$next = get_adjacent_post( false, '', false );
+		// Don't print empty markup on single pages if there's nowhere to navigate.
+		if ( is_single() ) {
+			$previous = ( is_attachment() ) ? get_post( $post->post_parent ) : get_adjacent_post( false, '', true );
+			$next = get_adjacent_post( false, '', false );
 
-		if ( ! $next && ! $previous )
-			return;
-	}
+			if ( ! $next && ! $previous ) {
+				return; }
+		}
 
-	// Don't print empty markup in archives if there's only one page.
-	if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) )
-		return;
+		// Don't print empty markup in archives if there's only one page.
+		if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) ) {
+			return; }
 
-	$nav_class = ( is_single() ) ? 'navigation-post' : 'navigation-paging';
+		$nav_class = ( is_single() ) ? 'navigation-post' : 'navigation-paging';
 
-	?>
-	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
+		?>
+		<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'phylo' ); ?></h1>
 
 	<?php if ( is_single() ) : // navigation links for single posts ?>
@@ -40,11 +40,10 @@ function phylo_content_nav( $nav_id ) {
 
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) :
 
-
-			if( function_exists('wp_pagenavi') ):
-				wp_pagenavi();
-			else:
-				// navigation links for home, archive, and search pages ?>
+if ( function_exists( 'wp_pagenavi' ) ) {
+	wp_pagenavi();
+	else :
+		// navigation links for home, archive, and search pages ?>
 
 				<?php if ( get_next_posts_link() ) : ?>
 				<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav"><i class="icon-left-open"></i></span> Older posts', 'phylo' ) ); ?></div>
@@ -55,34 +54,34 @@ function phylo_content_nav( $nav_id ) {
 				<?php endif; ?>
 
 		<?php
-			endif;
-		endif; ?>
+		endif;
+			endif; ?>
 
-		</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
-		<?php
+			</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
+			<?php
 
-}
+	}
 endif; // phylo_content_nav
 
 if ( ! function_exists( 'phylo_comment' ) ) :
-/**
+	/**
  * Template for comments and pingbacks.
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  */
-function phylo_comment( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
-	switch ( $comment->comment_type ) :
-		case 'pingback' :
-		case 'trackback' :
-	?>
-	<li class="post pingback">
+	function phylo_comment( $comment, $args, $depth ) {
+		$GLOBALS['comment'] = $comment;
+		switch ( $comment->comment_type ) :
+			case 'pingback' :
+			case 'trackback' :
+		?>
+		<li class="post pingback">
 		<p><?php _e( 'Pingback:', 'phylo' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'phylo' ), '<span class="edit-link">', '<span>' ); ?></p>
 	<?php
 			break;
-		default :
-	?>
-	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
+			default :
+		?>
+		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<article id="comment-<?php comment_ID(); ?>" class="comment">
 			<footer>
 				<div class="comment-author vcard">
@@ -110,31 +109,31 @@ function phylo_comment( $comment, $args, $depth ) {
 					'depth'     => $depth,
 					'max_depth' => $args['max_depth'],
 				) ) );
-			?>
-			</div><!-- .reply -->
-		</article><!-- #comment-## -->
+				?>
+				</div><!-- .reply -->
+			</article><!-- #comment-## -->
 
-	<?php
+		<?php
 			break;
-	endswitch;
-}
+		endswitch;
+	}
 endif; // ends check for phylo_comment()
 
 if ( ! function_exists( 'phylo_posted_on' ) ) :
-/**
+	/**
  * Prints HTML with meta information for the current post-date/time and author.
  */
-function phylo_posted_on() {
-	printf( __( 'Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><span class="byline"> by <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'phylo' ),
-		esc_url( get_permalink() ),
-		esc_attr( get_the_time() ),
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		esc_attr( sprintf( __( 'View all posts by %s', 'phylo' ), get_the_author() ) ),
-		get_the_author()
-	);
-}
+	function phylo_posted_on() {
+		printf( __( 'Posted on <a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><span class="byline"> by <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'phylo' ),
+			esc_url( get_permalink() ),
+			esc_attr( get_the_time() ),
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() ),
+			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+			esc_attr( sprintf( __( 'View all posts by %s', 'phylo' ), get_the_author() ) ),
+			get_the_author()
+		);
+	}
 endif;
 /**
  * Returns true if a blog has more than 1 category

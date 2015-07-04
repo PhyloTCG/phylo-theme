@@ -85,21 +85,21 @@ if ( ! function_exists( 'get_custom_header' ) ) {
 }
 
 if ( ! function_exists( 'phylo_header_style' ) ) :
-/**
+	/**
  * Styles the header image and text displayed on the blog
  *
  * @see phylo_custom_header_setup().
  */
-function phylo_header_style() {
+	function phylo_header_style() {
 
-	// If no custom options for text are set, let's bail
-	// get_header_textcolor() options: HEADER_TEXTCOLOR is default, hide text (returns 'blank') or any hex value
-	if ( HEADER_TEXTCOLOR == get_header_textcolor() )
-		return;
-	// If we get this far, we have custom styles. Let's do this.
-	?>
-	<style type="text/css">
-	<?php
+		// If no custom options for text are set, let's bail
+		// get_header_textcolor() options: HEADER_TEXTCOLOR is default, hide text (returns 'blank') or any hex value
+		if ( HEADER_TEXTCOLOR == get_header_textcolor() ) {
+			return; }
+		// If we get this far, we have custom styles. Let's do this.
+		?>
+		<style type="text/css">
+		<?php
 		// Has the text been hidden?
 		if ( 'blank' == get_header_textcolor() ) :
 	?>
@@ -120,17 +120,17 @@ function phylo_header_style() {
 	<?php endif; ?>
 	</style>
 	<?php
-}
+	}
 endif; // phylo_header_style
 
 if ( ! function_exists( 'phylo_admin_header_style' ) ) :
-/**
+	/**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
  * @see phylo_custom_header_setup().
  */
-function phylo_admin_header_style() {
-?>
+	function phylo_admin_header_style() {
+	?>
 	<style type="text/css">
 	.appearance_page_custom-header #headimg {
 		border: none;
@@ -147,30 +147,29 @@ function phylo_admin_header_style() {
 	#headimg img {
 	}
 	</style>
-<?php
-}
+	<?php
+	}
 endif; // phylo_admin_header_style
 
 if ( ! function_exists( 'phylo_admin_header_image' ) ) :
-/**
+	/**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
  * @see phylo_custom_header_setup().
  */
-function phylo_admin_header_image() { ?>
-	<div id="headimg">
-		<?php
-		if ( 'blank' == get_header_textcolor() || '' == get_header_textcolor() )
-			$style = ' style="display:none;"';
-		else
-			$style = ' style="color:#' . get_header_textcolor() . ';"';
-		?>
-		<h1 class="displaying-header-text"><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
+	function phylo_admin_header_image() {
+	?>
+		<div id="headimg">
+			<?php
+			if ( 'blank' == get_header_textcolor() || '' == get_header_textcolor() ) {
+				$style = ' style="display:none;"'; } else { 			$style = ' style="color:#' . get_header_textcolor() . ';"'; }
+			?>
+			<h1 class="displaying-header-text"><a id="name"<?php echo $style; ?> onclick="return false;" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
 		<div class="displaying-header-text" id="desc"<?php echo $style; ?>><?php bloginfo( 'description' ); ?></div>
 		<?php $header_image = get_header_image();
 		if ( ! empty( $header_image ) ) : ?>
 			<img src="<?php echo esc_url( $header_image ); ?>" alt="" />
 		<?php endif; ?>
-	</div>
-<?php }
+		</div>
+	<?php }
 endif; // phylo_admin_header_image

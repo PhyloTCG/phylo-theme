@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * Template Name: Create Card
  *
  * @package phylo
@@ -11,19 +11,19 @@
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 
-		<?php if( is_user_logged_in()): ?>
+		<?php if ( is_user_logged_in() ): ?>
 			<?php phylo_display_form(); ?>
-		<?php else: ?>
+		<?php else : ?>
 			<p>Sorry you have to be logged in to Create a Card.</p>
 		<?php endif; ?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
-<?php if( is_user_logged_in()): ?>
-<div class="widget-area-wrap">
-	<h4>Card Preview</h4>
-	<div id="preview-card"></div>
-</div>
+<?php if ( is_user_logged_in() ) : ?>
+	<div class="widget-area-wrap">
+		<h4>Card Preview</h4>
+		<div id="preview-card"></div>
+	</div>
 <?php endif; ?>
 <script type="text/template" id="card-template">
 <?php phylo_display_card( array(
@@ -49,7 +49,7 @@
 				'habitat-1'			=> '<%= habitat_1 %>',
 				'habitat-2'			=> '<%= habitat_2 %>',
 				'habitat-3'			=> '<%= habitat_3 %>',
-				), 'create'); 
+				), 'create');
 				?>
 </script>
 <?php get_footer(); ?>

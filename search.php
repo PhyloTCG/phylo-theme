@@ -18,7 +18,7 @@ get_header(); ?>
 
 			<?php /* Start the Loop */
 
-			if( isset( $_GET['post_type']) && $_GET['post_type'] == 'card' ) { ?>
+			if ( isset( $_GET['post_type']) && $_GET['post_type'] == 'card' ) { ?>
 			<div class="card-primary" id="post-shell">
 				<?php /* Start the Loop */ ?>
 				<?php while ( $wp_query->have_posts() ) : $wp_query->the_post(); ?>

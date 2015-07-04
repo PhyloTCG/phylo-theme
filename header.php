@@ -28,7 +28,7 @@
 	<?php do_action( 'before' ); ?>
 	<header id="masthead" class="site-header" role="banner">
 		<?php
-			if( is_user_logged_in() ):
+			if( is_user_logged_in() ) :
 				global $current_user;
 
 				?>
@@ -61,8 +61,8 @@
 			?>
 
 		<div id="card-searchform-shell">
-			<form id="card-searchform"  class="card-search" method="get" action="<?php bloginfo('url'); ?>">
-                <input id="card-autosearch" name="s" type="text" class="text" value="<?php if(isset($_GET['s'])) {echo esc_attr( $_GET['s'] ); } ?>" size="10" tabindex="1" />
+			<form id="card-searchform"  class="card-search" method="get" action="<?php bloginfo( 'url' ); ?>">
+                <input id="card-autosearch" name="s" type="text" class="text" value="<?php if ( isset( $_GET['s'] ) ) { echo esc_attr( $_GET['s'] ); } ?>" size="10" tabindex="1" />
                 <input name="post_type" value="card" type="hidden"  />
 				<input type="submit" class="button" value="Search" tabindex="2" />
             </form>
