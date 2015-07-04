@@ -39,27 +39,21 @@ if ( ! function_exists( 'phylo_content_nav' ) ) :
 		<?php next_post_link( '<div class="nav-next">%link</div>', '%title <span class="meta-nav">' . _x( '<i class="icon-right-open"></i>', 'Next post link', 'phylo' ) . '</span>' ); ?>
 
 	<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) :
+			if ( function_exists( 'wp_pagenavi' ) ) :
+				wp_pagenavi();
+			else :
+					// navigation links for home, archive, and search pages ?>
+					<?php if ( get_next_posts_link() ) : ?>
+						<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav"><i class="icon-left-open"></i></span> Older posts', 'phylo' ) ); ?></div>
+					<?php endif; ?>
+					<?php if ( get_previous_posts_link() ) : ?>
+						<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav"><i class="icon-right-open"></i></span>', 'phylo' ) ); ?></div>
+					<?php endif;
+					endif;
+		endif; ?>
 
-if ( function_exists( 'wp_pagenavi' ) ) {
-	wp_pagenavi();
-	else :
-		// navigation links for home, archive, and search pages ?>
-
-				<?php if ( get_next_posts_link() ) : ?>
-				<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav"><i class="icon-left-open"></i></span> Older posts', 'phylo' ) ); ?></div>
-				<?php endif; ?>
-
-				<?php if ( get_previous_posts_link() ) : ?>
-				<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav"><i class="icon-right-open"></i></span>', 'phylo' ) ); ?></div>
-				<?php endif; ?>
-
+		</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
 		<?php
-		endif;
-			endif; ?>
-
-			</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
-			<?php
-
 	}
 endif; // phylo_content_nav
 
